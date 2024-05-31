@@ -1,0 +1,24 @@
+GET http://localhost:3000/api/ads
+
+
+### Ads filtered for Bordeaux
+
+GET http://localhost:3000/api/ads?location=Paris
+
+
+### Create an ad with a category
+    
+POST http://localhost:3000/api/ads
+Content-Type: application/json
+ 
+{
+    "title": "2 Gourde",
+    "description": "Grande contenance",
+    "owner": "onsenfiche@gmail.com",
+    "price": 9,
+    "location": "Paris",
+    "createdAt": "2024-05-29T17:14:15.922Z",
+    "category": {
+        "name": "autre2"
+    }
+}

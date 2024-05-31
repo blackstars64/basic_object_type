@@ -1,0 +1,18 @@
+
+GET http://localhost:3000/api
+
+###
+# Get students (GET)
+GET http://localhost:3000/api/student 
+
+###
+# Get student (POST)
+POST http://localhost:3000/api/student
+Content-Type: application/json
+
+{
+    "firstname": "John",
+    "name": "John Doe",
+    "birthday": "1990-01-01",
+    "address": "1234 Main St"
+}
