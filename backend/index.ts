@@ -10,7 +10,7 @@ import { Ads } from "./src/entities/Ads";
 
 dotenv.config({ path: path.resolve(__dirname, "./.env") });
 
-const port: number | string = process.env.PORT || 3000;
+const port: number | string = process.env.PORT || 3002;
 
 async function clearDB() {
   await dataSource.manager.clear("Ads");
