@@ -1,4 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  ManyToMany,
+} from "typeorm";
+import { Student } from "./Student";
+import { Language } from "./Language";
 
 @Entity()
 export class School {
@@ -10,6 +18,12 @@ export class School {
 
   @Column({ nullable: true })
   capacity?: number;
+
+  @OneToMany(() => Student, (student) => student.school)
+  students?: Student[];
+
+  @ManyToMany(() => Language, (language) => language.schools)
+  languages?: Language[];
 
   constructor(city?: string, capacity?: number) {
     this.city = city;

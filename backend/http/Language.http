@@ -1,0 +1,13 @@
+### Get all languages
+GET http://localhost:3000/api/language
+
+### Get language by id
+GET http://localhost:3000/api/language/2
+
+### Create language
+POST http://localhost:3000/api/language
+Content-Type: application/json
+
+{
+    "name": "Rust"
+}   

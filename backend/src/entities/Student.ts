@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { School } from "./School";
 
 @Entity()
 export class Student {
@@ -16,6 +17,9 @@ export class Student {
 
   @Column({ nullable: true })
   address?: string;
+
+  @ManyToOne(() => School, (school) => school.students)
+  school?: School;
 
   constructor(
     firstname?: string,

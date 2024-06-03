@@ -3,7 +3,7 @@ GET http://localhost:3000/api/ads
 
 ### Ads filtered for Bordeaux
 
-GET http://localhost:3000/api/ads?location=Paris
+GET http://localhost:3000/api/ads?location=BB
 
 
 ### Create an ad with a category
@@ -12,13 +12,21 @@ POST http://localhost:3000/api/ads
 Content-Type: application/json
  
 {
-    "title": "2 Gourde",
+    "title": "2 rrrrr",
     "description": "Grande contenance",
     "owner": "onsenfiche@gmail.com",
     "price": 9,
-    "location": "Paris",
+    "location": "BB",
     "createdAt": "2024-05-29T17:14:15.922Z",
     "category": {
-        "name": "autre2"
-    }
+        "name": "Meubles"
+    },
+    "tags":
+        {
+            "name": "Télé Moderne"
+        }
+    
 }
+
+### Retrieve an ad by id
+DELETE http://localhost:3000/api/ads/49

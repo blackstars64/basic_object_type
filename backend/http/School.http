@@ -1,0 +1,30 @@
+### Get All Schools
+GET http://localhost:3000/api/school
+
+### Get School by ID
+GET http://localhost:3000/api/school/3
+
+### Create School
+POST http://localhost:3000/api/school
+Content-Type: application/json
+
+{
+    "capacity": 50,
+    "city": "Biarritz"
+}
+###
+POST http://localhost:3000/api/school
+Content-Type: application/json
+
+{
+    "capacity": 70,
+    "city": "Bordeaux"
+}
+###
+POST http://localhost:3000/api/school
+Content-Type: application/json
+
+{
+    "capacity": 20,
+    "city": "Paris"
+}

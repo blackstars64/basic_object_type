@@ -1,4 +1,13 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from "typeorm";
+import { Category } from "./Category";
+import { Tag } from "./Tag";
 
 @Entity()
 export class Ads {
@@ -25,6 +34,13 @@ export class Ads {
 
   @Column({ nullable: true })
   createdAt?: Date;
+
+  @ManyToOne(() => Category, (category) => category.ads, { eager: true })
+  category?: Category;
+
+  @ManyToMany(() => Tag, { cascade: true })
+  @JoinTable()
+  tags?: Promise<Tag[]>;
 
   constructor(
     title: string = "",

@@ -5,4 +5,5 @@ export const dataSource = new DataSource({
   database: "src/data/db.sqlite",
   entities: ["src/entities/*.ts"],
   synchronize: true,
+  logging: "all",
 });

@@ -1,26 +1,26 @@
 import { Request, Response } from "express";
 import { dataSource } from "../config/db";
-import { Student } from "../entities/Student";
+import { School } from "../entities/School";
 
 const db = dataSource.manager;
 
 const add = async (req: Request, res: Response) => {
-  const { firstname, name, birthday, address } = req.body;
+  const { city, capacity } = req.body;
   try {
-    if (!firstname || !name || !birthday || !address) {
+    if (!city || !capacity) {
       return res.status(400).json({ error: "Missing required fields" });
     }
 
-    const student = new Student();
-    student.firstname = firstname;
-    student.name = name;
-    student.birthday = new Date(birthday);
-    student.address = address;
+    console.log("city", city);
 
-    console.log("student", student);
+    const school = new School();
+    school.city = city;
+    school.capacity = capacity;
 
-    await db.save(student);
-    res.send(student);
+    console.log("school", school);
+
+    await db.save(school);
+    res.send(school);
   } catch (error: any) {
     res.status(500).json({ error: "Internal Server Error" });
   }
@@ -28,12 +28,14 @@ const add = async (req: Request, res: Response) => {
 
 const browse = async (req: Request, res: Response) => {
   try {
-    const students = await db.find(Student);
+    const schools = await db.find(School);
 
-    if (students.length === 0) {
-      res.status(404).json({ error: "No students found" });
+    console.log("schools", schools);
+
+    if (schools.length === 0) {
+      return res.status(404).json({ error: "No schools found" });
     }
-    res.status(200).send(students);
+    res.status(200).send(schools);
   } catch (error: any) {
     res.status(500).json({ error: "Internal Server Error" });
   }
@@ -42,12 +44,12 @@ const browse = async (req: Request, res: Response) => {
 const getById = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
-    const student = await db.findOneBy(Student, { id: Number(id) });
+    const school = await db.findOneBy(School, { id: Number(id) });
 
-    if (!student) {
-      return res.status(404).json({ error: "Student not found" });
+    if (!school) {
+      return res.status(404).json({ error: "School not found" });
     }
-    res.status(200).send(student);
+    res.status(200).send(school);
   } catch (error: any) {
     res.status(500).json({ error: "Internal Server Error" });
   }
