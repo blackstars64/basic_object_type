@@ -41,14 +41,8 @@ function RecentAds() {
     <>
       <h2>Annonces récentes</h2>
       <section className="recent-ads">
-        {ads.map((ad) => (
-          <AdCard
-            key={ad.title}
-            title={ad.title}
-            price={ad.price}
-            image={ad.image}
-            link={ad.link}
-          />
+        {ads.map((ad, index: number) => (
+          <AdCard key={index} {...ad} />
         ))}
       </section>
     </>
