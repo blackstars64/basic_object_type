@@ -1,4 +1,6 @@
+import { useState } from "react";
 import AdCard from "./AdCard";
+import style from "../styles/recentAds.module.css";
 
 type Ad = {
   title: string;
@@ -8,6 +10,8 @@ type Ad = {
 };
 
 function RecentAds() {
+  const [total, setTotal] = useState<number>(0);
+
   const ads: Ad[] = [
     { title: "Table", price: 120, image: "table.webp", link: "table" },
     {
@@ -37,12 +41,20 @@ function RecentAds() {
     },
   ];
 
+  type Total = {
+    total: number;
+    setTotal: (total: number) => void;
+  };
+
   return (
     <>
-      <h2>Annonces récentes</h2>
+      <div className={style.contenairTAndP}>
+        <h2>Annonces récentes</h2>
+        <p>Prix total: {total}€</p>
+      </div>
       <section className="recent-ads">
-        {ads.map((ad, index: number) => (
-          <AdCard key={index} {...ad} />
+        {ads.map((ad: Ad, index: number) => (
+          <AdCard key={index} {...ad} setTotal={setTotal} total={total} />
         ))}
       </section>
     </>
