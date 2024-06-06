@@ -1,11 +1,11 @@
 ### Get All Schools
-GET http://localhost:3000/api/school
+GET http://localhost:3005/api/school
 
 ### Get School by ID
-GET http://localhost:3000/api/school/3
+GET http://localhost:3005/api/school/3
 
 ### Create School
-POST http://localhost:3000/api/school
+POST http://localhost:3005/api/school
 Content-Type: application/json
 
 {
@@ -13,7 +13,7 @@ Content-Type: application/json
     "city": "Biarritz"
 }
 ###
-POST http://localhost:3000/api/school
+POST http://localhost:3005/api/school
 Content-Type: application/json
 
 {
@@ -21,7 +21,7 @@ Content-Type: application/json
     "city": "Bordeaux"
 }
 ###
-POST http://localhost:3000/api/school
+POST http://localhost:3005/api/school
 Content-Type: application/json
 
 {

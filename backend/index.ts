@@ -25,6 +25,7 @@ async function createAds(
   title: string,
   owner: string,
   location: string,
+  price: number,
   category: Category,
   ...tags: Tag[]
 ) {
@@ -32,6 +33,7 @@ async function createAds(
     title,
     owner,
     location,
+    price,
   });
 
   ad.category = category;
@@ -64,10 +66,10 @@ async function seedDB() {
   await dataSource.manager.save(tag2);
   await dataSource.manager.save(tag3);
 
-  await createAds("Canapé", "Jean", "Paris", category, tag, tag2);
-  await createAds("Télé", "Jean", "Bayonne", category3, tag3);
-  await createAds("Table", "Jean", "Paris", category, tag);
-  await createAds("Frigo", "Jean", "Bordeaux", category2, tag2);
+  await createAds("Canapé", "Jean", "Paris", 500, category, tag, tag2);
+  await createAds("Télé", "Jean", "Bayonne", 45, category3, tag3);
+  await createAds("Table", "Jean", "Paris", 457, category, tag);
+  await createAds("Frigo", "Jean", "Bordeaux", 85, category2, tag2);
 }
 
 app

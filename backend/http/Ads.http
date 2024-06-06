@@ -1,14 +1,14 @@
-GET http://localhost:3000/api/ads
+GET http://localhost:3005/api/ads
 
 
 ### Ads filtered for Bordeaux
 
-GET http://localhost:3000/api/ads?location=BB
+GET http://localhost:3005/api/ads?location=BB
 
 
 ### Create an ad with a category
     
-POST http://localhost:3000/api/ads
+POST http://localhost:3005/api/ads
 Content-Type: application/json
  
 {
@@ -29,4 +29,4 @@ Content-Type: application/json
 }
 
 ### Retrieve an ad by id
-DELETE http://localhost:3000/api/ads/49
+DELETE http://localhost:3005/api/ads/49
