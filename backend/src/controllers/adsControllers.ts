@@ -76,7 +76,7 @@ const add = async (req: Request, res: Response) => {
     console.log("tags", await tags);
     console.log("category", await category);
 
-    // await db.save(ads);
+    await db.save(ads);
     res.send(ads);
   } catch (error: Er) {
     console.log("error--------------------------", error);

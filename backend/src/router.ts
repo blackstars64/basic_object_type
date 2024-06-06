@@ -8,6 +8,7 @@ import studentControllers from "./controllers/studentontrollers";
 import adsControllers from "./controllers/adsControllers";
 import languageControllers from "./controllers/languageControllers";
 import schoolControllers from "./controllers/schoolControllers";
+import categoryControllers from "./controllers/categoryControllers";
 
 /*   *****   Routes   *****   */
 /* *** POST *** */
@@ -38,6 +39,9 @@ router.get("/language/:id", languageControllers.getById);
 // *********** api/school  SCHOOL
 router.get("/school", schoolControllers.browse);
 router.get("/school/:id", schoolControllers.getById);
+
+// *********** api/category  CATEGORY
+router.get("/category", categoryControllers.browse);
 
 /* *** PUT *** */
 // *********** api/student  STUDENT

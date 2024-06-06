@@ -75,8 +75,8 @@ async function seedDB() {
 app
   .listen(port, async () => {
     await dataSource.initialize();
-    await clearDB();
-    await seedDB();
+    // await clearDB();
+    // await seedDB();
     console.info(`Server is listening on port ${port}`);
   })
   .on("error", (err: Error | null) => {

@@ -6,7 +6,7 @@ import axios from "axios";
 interface Ad {
   title: string;
   price: number;
-  image: string;
+  picture: string;
   link: string;
 }
 

@@ -1,17 +1,18 @@
 import styles from "@/styles/Header.module.css";
+import Link from "next/link";
 
 function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.main}>
         <h1>
-          <a
+          <Link
             href="/"
             className={`${styles.logo} ${styles.button} ${styles.linkButtons}`}
           >
             <span className={styles.mobileShortLabel}>TGC</span>
             <span className={styles.desktopLongLabel}>THE GOOD CORNER</span>
-          </a>
+          </Link>
         </h1>
         <form className={styles.textFieldWithButton}>
           <input className={styles.mainSearchField} type="search" />
@@ -31,63 +32,66 @@ function Header() {
             </svg>
           </button>
         </form>
-        <a href="/post-ad" className={`${styles.linkButtons} ${styles.button}`}>
+        <Link
+          href="/ad/NewAd"
+          className={`${styles.linkButtons} ${styles.button}`}
+        >
           <span className={styles.mobileShortLabel}>Publier</span>
           <span className={styles.desktopLongLabel}>Publier une annonce</span>
-        </a>
+        </Link>
       </div>
       <nav className={styles.categoryNavigation}>
-        <a href="" className={styles.categoryNavigationLink}>
+        <Link href="" className={styles.categoryNavigationLink}>
           Ameublement
-        </a>{" "}
+        </Link>{" "}
         •
-        <a href="" className={styles.categoryNavigationLink}>
+        <Link href="" className={styles.categoryNavigationLink}>
           Électroménager
-        </a>{" "}
+        </Link>{" "}
         •
-        <a href="" className={styles.categoryNavigationLink}>
+        <Link href="" className={styles.categoryNavigationLink}>
           Photographie
-        </a>{" "}
+        </Link>{" "}
         •
-        <a href="" className={styles.categoryNavigationLink}>
+        <Link href="" className={styles.categoryNavigationLink}>
           Informatique
-        </a>{" "}
+        </Link>{" "}
         •
-        <a href="" className={styles.categoryNavigationLink}>
+        <Link href="" className={styles.categoryNavigationLink}>
           Téléphonie{" "}
-        </a>{" "}
+        </Link>{" "}
         •
-        <a href="" className={styles.categoryNavigationLink}>
+        <Link href="" className={styles.categoryNavigationLink}>
           Vélos
-        </a>{" "}
+        </Link>{" "}
         •
-        <a href="" className={styles.categoryNavigationLink}>
+        <Link href="" className={styles.categoryNavigationLink}>
           Véhicules
-        </a>{" "}
+        </Link>{" "}
         •
-        <a href="" className={styles.categoryNavigationLink}>
+        <Link href="" className={styles.categoryNavigationLink}>
           Sport
-        </a>{" "}
+        </Link>{" "}
         •
-        <a href="" className={styles.categoryNavigationLink}>
+        <Link href="" className={styles.categoryNavigationLink}>
           Habillement
-        </a>{" "}
+        </Link>{" "}
         •
-        <a href="" className={styles.categoryNavigationLink}>
+        <Link href="" className={styles.categoryNavigationLink}>
           Bébé
-        </a>{" "}
+        </Link>{" "}
         •
-        <a href="" className={styles.categoryNavigationLink}>
+        <Link href="" className={styles.categoryNavigationLink}>
           Outillage
-        </a>{" "}
+        </Link>{" "}
         •
-        <a href="" className={styles.categoryNavigationLink}>
+        <Link href="" className={styles.categoryNavigationLink}>
           Services{" "}
-        </a>{" "}
+        </Link>{" "}
         •
-        <a href="" className={styles.categoryNavigationLink}>
+        <Link href="" className={styles.categoryNavigationLink}>
           Vacances
-        </a>
+        </Link>
       </nav>
     </header>
   );
