@@ -1,14 +1,19 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Field, ID, ObjectType } from "type-graphql";
+import { Column, Entity, PrimaryGeneratedColumn, BaseEntity } from "typeorm";
 
+@ObjectType()
 @Entity()
-export class Tag {
+export class Tag extends BaseEntity {
   @PrimaryGeneratedColumn()
+  @Field((type) => ID)
   id?: number;
 
-  @Column({ nullable: true })
+  @Column()
+  @Field()
   name: string;
 
   constructor(name: string = "") {
+    super();
     this.name = name;
   }
 }

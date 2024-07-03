@@ -8,6 +8,7 @@ interface Ad {
   price: number;
   picture: string;
   link: string;
+  description: string;
 }
 
 function RecentAds() {

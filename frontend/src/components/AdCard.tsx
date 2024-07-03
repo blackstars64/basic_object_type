@@ -7,17 +7,30 @@ type AdCardProps = {
   price: number;
   picture: string;
   link: string;
+  description: string;
   setTotal: (total: number) => void;
   total: number;
 };
 
-function AdCard({ title, price, picture, link, setTotal, total }: AdCardProps) {
+function AdCard({
+  title,
+  price,
+  description,
+  picture,
+  link,
+  setTotal,
+  total,
+}: AdCardProps) {
   return (
     <div className={styles.container}>
       <Link className={styles.link} href={`/ads/${link}`}>
         <Image
           className={styles.image}
-          src={picture ? picture : ""}
+          src={
+            picture
+              ? picture
+              : "https://upload.wikimedia.org/wikipedia/commons/f/f8/Question_mark_alternate.svg"
+          }
           alt={title}
           width={300}
           height={200}
@@ -26,6 +39,7 @@ function AdCard({ title, price, picture, link, setTotal, total }: AdCardProps) {
           <div className={styles.title}>{title}</div>
           <div className={styles.price}>{price} €</div>
         </div>
+        {description && <p className={styles.desc}>{description}</p>}
       </Link>
       <div className={styles.cBtn}>
         <button

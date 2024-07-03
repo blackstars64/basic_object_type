@@ -73,59 +73,61 @@ function NewAd() {
   };
 
   return (
-    <form
-      onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
-      ref={form}
-      className={styles.form}
-    >
-      <label className={styles.label}>
-        Titre de l&apos;annonce
-        <input className={styles.input} type="text" name="title" id="title" />
-      </label>
-      <label className={styles.label}>
-        Description
-        <input
-          className={styles.input}
-          type="text"
-          name="description"
-          id="description"
-        />
-      </label>
-      <label className={styles.label}>
-        Prix
-        <input className={styles.input} type="text" name="price" id="price" />
-      </label>
-      <label className={styles.label}>
-        Photo
-        <input className={styles.file} type="file" name="photo" id="photo" />
-      </label>
-      <label className={styles.label}>
-        Localisation
-        <input
-          className={styles.input}
-          type="text"
-          name="location"
-          id="location"
-        />
-      </label>
-      <label className={styles.label}>
-        Category
-        <select className={styles.select} name="category" id="category">
-          {categories.map((category: any) => (
-            <option
-              className={styles.option}
-              key={category.id}
-              value={category.name}
-            >
-              {category.name}
-            </option>
-          ))}
-        </select>
-      </label>
-      <button type="submit" className={styles.button}>
-        Créer l&apos;annonce
-      </button>
-    </form>
+    <div className={styles.contenair}>
+      <form
+        onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
+        ref={form}
+        className={styles.form}
+      >
+        <label className={styles.label}>
+          Titre de l&apos;annonce
+          <input className={styles.input} type="text" name="title" id="title" />
+        </label>
+        <label className={styles.label}>
+          Description
+          <input
+            className={styles.input}
+            type="text"
+            name="description"
+            id="description"
+          />
+        </label>
+        <label className={styles.label}>
+          Prix
+          <input className={styles.input} type="text" name="price" id="price" />
+        </label>
+        <label className={styles.label}>
+          Photo
+          <input className={styles.file} type="file" name="photo" id="photo" />
+        </label>
+        <label className={styles.label}>
+          Localisation
+          <input
+            className={styles.input}
+            type="text"
+            name="location"
+            id="location"
+          />
+        </label>
+        <label className={styles.label}>
+          Category
+          <select className={styles.select} name="category" id="category">
+            {categories.map((category: any) => (
+              <option
+                className={styles.option}
+                key={category.id}
+                value={category.name}
+              >
+                {category.name}
+              </option>
+            ))}
+          </select>
+        </label>
+        <button type="submit" className={styles.button}>
+          Créer l&apos;annonce
+        </button>
+      </form>
+    </div>
   );
 }
 

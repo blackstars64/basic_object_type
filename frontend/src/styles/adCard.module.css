@@ -1,8 +1,9 @@
 .container {
   border-radius: 8px;
-  border: 1px solid lightgray;
+  border: 1px solid #979b5a;
   color: inherit;
   background-color: white;
+  padding: 8px;
 }
 
 .link {
@@ -13,6 +14,8 @@
 .image {
   width: 100%;
   border-radius: 8px;
+  border: #ffa41b 2px solid;
+  padding: 4px;
 }
 
 .text {
@@ -52,4 +55,12 @@
   color: #ffa41b;
   background-color: white;
   cursor: pointer;
+}
+
+.desc {
+  padding: 12px;
+  font-size: 16px;
+  width: 100%;
+  background-color: #e5b26824;
+  border: 1px solid #d5d4d2;
 }

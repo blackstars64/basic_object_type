@@ -18,6 +18,11 @@
     "reflect-metadata": "^0.2.2",
     "sqlite3": "^5.1.7",
     "typeorm": "^0.3.20",
+    "@apollo/server": "^4.10.4",
+    "dataloader": "^2.2.2",
+    "graphql": "^16.9.0",
+    "graphql-scalars": "^1.23.0",
+    "type-graphql": "^2.0.0-rc.1",
     "typescript": "^5.4.5"
   },
   "scripts": {
