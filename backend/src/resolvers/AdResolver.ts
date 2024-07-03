@@ -1,4 +1,11 @@
-import { Arg, FieldResolver, Query, Resolver, Root } from "type-graphql";
+import {
+  Arg,
+  FieldResolver,
+  Mutation,
+  Query,
+  Resolver,
+  Root,
+} from "type-graphql";
 import { Ad } from "../entities/Ad";
 import DataLoader from "dataloader";
 import { Tag } from "../entities/Tag";
@@ -41,20 +48,18 @@ export class AdResolver {
   }
 
   // CREATE
-  @Query(() => [Ad])
+  @Mutation(() => [Ad])
   async createAds(
     @Arg("data")
     { title, description, price, picture, location, category, tags }: Ad
   ): Promise<Ad[]> {
-    const ad = new Ad(
-      title,
-      description,
-      price,
-      picture,
-      location,
-      category,
-      tags
-    );
+    const ad = new Ad(title, description, price, picture, location);
+
+    if (category === null) {
+      throw new Error("Category is required");
+    }
+    ad.category = category;
+
     await ad.save();
     return Ad.find();
   }
