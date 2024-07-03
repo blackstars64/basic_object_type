@@ -4,9 +4,10 @@ import {
   Column,
   ManyToOne,
   BaseEntity,
+  OneToMany,
 } from "typeorm";
 import { ObjectType, Field, ID } from "type-graphql";
-import { Type } from "./Type";
+import { Ad } from "./Ad";
 
 @ObjectType()
 @Entity()
@@ -23,7 +24,7 @@ export class User extends BaseEntity {
   @Column()
   email!: string;
 
-  @Field(() => Type)
-  @ManyToOne(() => Type, (type) => type.users, { eager: true, nullable: false })
-  type!: Type;
+  @Field((type) => Ad)
+  @OneToMany(() => Ad, (ad) => ad.user)
+  ads!: Ad[];
 }
