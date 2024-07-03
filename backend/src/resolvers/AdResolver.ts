@@ -32,25 +32,29 @@ export class AdResolver {
       return undefined;
     }
 
-    const adId: number = parseInt(id.toString());
-
-    const ad: Ad | null = await Ad.findOne({ where: { id: adId } });
+    const ad: Ad | null = await Ad.findOneBy({ id });
     if (ad == null) {
-      return undefined;
+      throw new Error(`Ad with id ${id} not found`);
     }
 
     return ad;
   }
 
+  // CREATE
   @Query(() => [Ad])
-  async addAds(
-    @Arg("title") title: string,
-    @Arg("description") description: string,
-    @Arg("price") price: number,
-    @Arg("picture") picture: string,
-    @Arg("location") location: string
+  async createAds(
+    @Arg("data")
+    { title, description, price, picture, location, category, tags }: Ad
   ): Promise<Ad[]> {
-    const ad = new Ad(title, description, price, picture, location);
+    const ad = new Ad(
+      title,
+      description,
+      price,
+      picture,
+      location,
+      category,
+      tags
+    );
     await ad.save();
     return Ad.find();
   }
