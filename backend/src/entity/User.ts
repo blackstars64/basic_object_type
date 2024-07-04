@@ -1,17 +1,10 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  ManyToOne,
-  BaseEntity,
-  OneToMany,
-} from "typeorm";
-import { ObjectType, Field, ID } from "type-graphql";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 import { Ad } from "./Ad";
+import { ObjectType, Field, ID } from "type-graphql";
 
 @ObjectType()
 @Entity()
-export class User extends BaseEntity {
+export class User {
   @Field(() => ID)
   @PrimaryGeneratedColumn()
   id?: number;
@@ -24,7 +17,7 @@ export class User extends BaseEntity {
   @Column()
   email!: string;
 
-  @Field((type) => Ad)
+  @Field(() => [Ad])
   @OneToMany(() => Ad, (ad) => ad.user)
   ads!: Ad[];
 }

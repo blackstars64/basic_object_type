@@ -1,18 +1,20 @@
-import { Field, ID, ObjectType } from "type-graphql";
 import {
-  Column,
   Entity,
-  JoinTable,
-  ManyToMany,
-  ManyToOne,
   PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  ManyToMany,
+  JoinTable,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from "typeorm";
 import { User } from "./User";
-import { Category } from "./Category";
 import { Tag } from "./Tag";
+import { Category } from "./Category";
+import { ObjectType, Field, ID } from "type-graphql";
 
-@Entity()
 @ObjectType()
+@Entity()
 export class Ad {
   @Field(() => ID)
   @PrimaryGeneratedColumn()
@@ -22,21 +24,17 @@ export class Ad {
   @Column()
   title!: string;
 
-  @Field({ nullable: true })
-  @Column({ nullable: true })
+  @Field()
+  @Column()
   description!: string;
 
-  @Field((type) => Number)
+  @Field()
   @Column()
   price!: number;
 
-  @Field({ nullable: true })
-  @Column({ nullable: true })
+  @Field()
+  @Column()
   image!: string;
-
-  @Field(() => Date)
-  @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
-  createdAt!: Date;
 
   @Field(() => User)
   @ManyToOne(() => User, (user) => user.ads)
@@ -47,7 +45,15 @@ export class Ad {
   category!: Category;
 
   @Field(() => [Tag])
-  @ManyToMany(() => Tag, (tag) => tag.ads)
+  @ManyToMany(() => Tag)
   @JoinTable()
   tags!: Tag[];
+
+  @Field()
+  @CreateDateColumn({ type: "datetime" })
+  createdAt!: Date;
+
+  @Field()
+  @UpdateDateColumn({ type: "datetime" })
+  updatedAt!: Date;
 }

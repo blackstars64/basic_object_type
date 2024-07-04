@@ -8,6 +8,18 @@ const db = AppDataSource.manager;
 export class UserResolver {
   @Query(() => [User])
   async users(): Promise<User[]> {
-    return db.find(User);
+    return await db.find(User, {
+      relations: ["ads", "ads.category", "ads.tags"],
+    });
+  }
+
+  @Mutation(() => User)
+  async createUser(
+    @Arg("name") name: string,
+    @Arg("email") email: string
+  ): Promise<User> {
+    const user = db.create(User, { name, email });
+    await db.save(user);
+    return user;
   }
 }

@@ -1,12 +1,17 @@
 import "reflect-metadata";
 import { ApolloServer } from "apollo-server";
-import { createSchema } from "./schema";
+import { buildSchema } from "type-graphql";
 import { AppDataSource } from "./data-source";
+import { UserResolver } from "./resolver/UserResolver";
+import seed from "./seed";
 
 const startServer = async () => {
   await AppDataSource.initialize();
+  await seed();
 
-  const schema = await createSchema();
+  const schema = await buildSchema({
+    resolvers: [UserResolver],
+  });
 
   const server = new ApolloServer({ schema });
 
